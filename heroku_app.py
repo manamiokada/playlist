@@ -35,8 +35,8 @@ def get_play(playid):
     playlist = db.child("playlist").child(playid).get()
     return render_template('playlist.html', current_url=request.url, name=playlist.val()['name'])
 
-@app.route('/playlist/<playid>', methods=['POST'])
-def post_play(playid):
+# @app.route('/playlist/<playid>', methods=['POST'])
+# def post_play(playid):
 
 if __name__ == '__main__':
     # Bind to PORT if defined, otherwise default to 5000.
