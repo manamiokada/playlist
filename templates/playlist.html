@@ -1,0 +1,24 @@
+{% extends "baseplaylist.html" %}
+{% block content %}
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                  <th>youtube link</th>
+                  <th>artist</th>
+                  <th>song</th>
+                  <th>tags</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                  <td><input class="form-control" type="text" name="link"></td>
+                  <td><input class="form-control" type="text" name="artist"></td>
+                  <td><input class="form-control" type="text" name="song"></td>
+                  <td><input class="form-control" type="text" name="tags"></td>
+            </tr>
+        </tbody>
+    </table>
+
+</div>
+{% endblock %}

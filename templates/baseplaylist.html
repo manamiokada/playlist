@@ -1,0 +1,54 @@
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>playlist</title>
+        <!-- bootstrap v.4 -->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/css/bootstrap.min.css" integrity="sha384-Zug+QiDoJOrZ5t4lssLdxGhVrurbmBWopoEl+M6BdEfwnCJZtKxi1KgxUyJq13dy" crossorigin="anonymous">
+        <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0-beta.3/js/bootstrap.min.js" integrity="sha384-a5N7Y/aK3qNeh15eJKGWxsqtnX/wWdSZSKp+81YjTmS15nvnvxKHuzaWwXHDli+4" crossorigin="anonymous"></script>
+        <!-- Google font -->
+        <link href="https://fonts.googleapis.com/css?family=Khula:300|Poiret+One" rel="stylesheet">
+        <!-- fontawesome -->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.2/js/all.js"></script>
+        <!-- jQuery tagmanager -->
+        <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script> -->
+        <script src="{{ url_for('static', filename='tagmanager-plugin/tagmanager.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='tagmanager-plugin/tagmanager.css') }}">
+        <!-- custom files -->
+        <script type="text/javascript" src="{{ url_for('static', filename='js/main.js') }}"></script>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='css/style.css') }}">
+    </head>
+    <body>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand">{{name}}</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="my-2">
+                        <div class="input-group">
+                            <input class="form-control" id="url" type="text" value={{request.url}} readonly>
+                            <div class="input-group-append">
+                                <button class="btn btn-outline-secondary" onclick="copy()"><i class="far fa-clipboard"></i></button>
+                            </div>
+                        </div>
+                    </li>
+                </ul>
+                <form class="form-inline my-2 my-lg-0">
+                    <input class="form-control mr-sm-2 tm-input" type="text" placeholder="#tags" aria-label="search">
+                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">search</button>
+                </form>
+            </div>
+        </nav>
+        <div class="container">
+            {% block content %}{% endblock %}
+        </div>
+    </body>
+</html>
